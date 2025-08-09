@@ -1,17 +1,64 @@
-<nav>
-  <a href="index.html">Home</a>
-  <a href="bio.html">Bio</a>
-  <a href="cat-gallery.html" class="active">Cats</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cat Gallery | Canwen Xu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Reuse your main stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Minimal gallery CSS (safe to keep even with your main styles) */
+    .cat-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 20px;
+    }
+    .cat-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      transition: transform .2s ease;
+    }
+    .cat-grid img:hover { transform: scale(1.03); }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="inner">
+        <a class="site-title" href="index.html">Canwen Xu</a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="bio.html">Bio</a>
+          <a href="cat-gallery.html" class="active">My Cat</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-<div class="cat-grid">
-  <img src="gigi1.jpg" alt="Gigi british shorthair">
-  <img src="gigi2.jpg" alt="Gigi british shorthair">
-  <img src="gigi3.jpg" alt="Gigi british shorthair">
-  <img src="gigi4.jpg" alt="Gigi british shorthair">
-  <img src="gigi5.jpg" alt="Gigi british shorthair">
-  <img src="gigi6.jpg" alt="Gigi british shorthair">
-  <img src="gigi7.jpg" alt="Gigi british shorthair">
-  <img src="gigi8.jpg" alt="Gigi british shorthair">
-</div>
+    <main class="inner">
+      <h1>Cat Gallery</h1>
+      <p>A delightfully unnecessary but entirely essential collection.</p>
+
+      <div class="cat-grid">
+        <!-- Replace these with your real images -->
+          <img src="gigi1.jpg" alt="Gigi british shorthair">
+          <img src="gigi2.jpg" alt="Gigi british shorthair">
+          <img src="gigi3.jpg" alt="Gigi british shorthair">
+          <img src="gigi4.jpg" alt="Gigi british shorthair">
+          <img src="gigi5.jpg" alt="Gigi british shorthair">
+          <img src="gigi6.jpg" alt="Gigi british shorthair">
+          <img src="gigi7.jpg" alt="Gigi british shorthair">
+          <img src="gigi8.jpg" alt="Gigi british shorthair">
+      </div>
+    </main>
+
+    <footer>
+      <div class="inner"><small>© Canwen Xu</small></div>
+    </footer>
+  </div>
+</body>
+</html>
