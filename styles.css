@@ -1,0 +1,129 @@
+
+:root{
+  --bg: #ffffff;
+  --page: var(--accent);
+  --fg: #111;
+  --muted: #555;
+  --accent: #8AC9E1;
+  --accent-ink: #fff;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: 'Merriweather', serif;
+  line-height:1.65;
+  color:var(--fg);
+  background: var(--page);
+}
+
+.shell{
+  max-width: clamp(720px, 80vw, 1200px); /* wider content area */
+  margin: 6vh auto 8vh auto;
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: clip;
+}
+
+.inner{ padding: clamp(18px, 2.5vw, 32px); }
+
+header{ border-bottom: 1px solid #eee; }
+.site-title{
+  display:block;
+  text-align:center;
+  font-weight:800;
+  letter-spacing:.02em;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  margin: 4px 0 8px 0;
+  text-decoration:none;
+  color: var(--fg);
+}
+nav{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom: 4px; }
+nav a{ text-decoration:none; color:var(--fg); padding:8px 10px; border-radius:10px }
+nav a.active, nav a:hover{ background:#f6f6f6 }
+
+.hero{ display:grid; gap: clamp(18px, 2vw, 28px); align-items:center; }
+@media(min-width:900px){ .hero{ grid-template-columns: 1fr 1.25fr; } }
+img{ max-width:100%; height:auto; border-radius: 10px; }
+
+.badge{ display:inline-block; font-size:12px; letter-spacing:.05em; text-transform:uppercase; background:var(--accent); color:var(--accent-ink); padding:6px 10px; border-radius:999px }
+
+.buttons a{ display:inline-block; margin-right:12px; padding:10px 16px; border:1px solid var(--fg); border-radius:10px; text-decoration:none; color:inherit }
+.buttons a.primary{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent) }
+
+footer{ color:var(--muted); font-size:0.9rem; border-top:1px solid #eee; }
+footer .inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap }
+
+.buttons a.pre-order {
+  display: inline-block;
+  font-size: 1.1rem;
+  padding: 14px 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.buttons a.pre-order:hover {
+  opacity: 0.9; /* subtle hover feedback */
+}
+
+.eyebrow-badge {
+  background: rgba(199, 62, 43, 0.10);  // 10% of your accent #c73e2b
+  border: 1px solid rgba(199, 62, 43, 0.35);
+  color: #8c261c;
+}
+
+/* Keep CTA visually dominant: solid, bigger, pill shape */
+.buttons a.pre-order {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+  border-radius: 999px;               /* distinct from badge’s 6px */
+  font-size: 1.1rem;
+  padding: 14px 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.buttons a.pre-order:hover { opacity: 0.92; }
+
+/* Bio layout */
+.bio-grid {
+  display: grid;
+  gap: clamp(18px, 2.5vw, 28px);
+  align-items: start;
+}
+
+/* Two columns on desktop; stacked on mobile */
+@media (min-width: 900px) {
+  .bio-grid {
+    grid-template-columns: 320px 1fr;
+  }
+}
+
+/* Headshot styles */
+.headshot {
+  margin: 0;
+}
+.headshot img {
+  display: block;
+  width: 100%;
+  max-width: 180px; /* adjust this number until it looks right */
+  height: auto;
+  border-radius: 50%;        /* circular portrait */
+  object-fit: cover;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+}
+.headshot figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Bio text */
+.bio-copy h1 { margin-top: 0; }
+.bio-copy p { margin: 0 0 14px; }
+
