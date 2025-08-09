@@ -93,7 +93,7 @@ footer .inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:
 /* Bio layout */
 .bio-grid {
   display: grid;
-  gap: clamp(18px, 2.5vw, 28px);
+  gap: 20px;  /* was likely bigger — try 16–20px for tighter spacing */
   align-items: start;
 }
 
