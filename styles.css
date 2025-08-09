@@ -112,8 +112,8 @@ footer .inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:
   display: block;
   width: 100%;
   max-width: 280px;      /* adjust until size feels right */
-  aspect-ratio: 1 / 1;   /* keeps it perfectly square */
-  border-radius: 50%;    /* makes it circular */
+  aspect-ratio: 3 / 4; /* slightly taller than wide */
+  border-radius: 50% / 60%; /* makes an oval: 50% horizontal, 60% vertical rounding */
   object-fit: cover;     /* ensures it crops, not squishes */
   margin: 0 auto;        /* centers in its column */
   box-shadow: 0 6px 24px rgba(0,0,0,.08);
