@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Merriweather:wght@400;700&display=swap');
 
 :root{
   --bg: #ffffff;
-  --page: var(--accent);
-  --fg: #111;
-  --muted: #555;
+  --page: #fbeee4;
+  --fg: #1a1410;
+  --muted: #6b5d53;
   --accent: #8AC9E1;
-  --accent-ink: #fff;
+  --accent-ink: #1a1410;
+  --orange: #ee6120;
+  --magenta: #cd267e;
   --radius: 14px;
   --shadow: 0 10px 30px rgba(0,0,0,.08);
 }
@@ -19,6 +22,8 @@ body{
   background: var(--page);
 }
 
+h1, h2, .site-title { font-family: 'Playfair Display', serif; }
+
 .shell{
   max-width: clamp(720px, 80vw, 1200px); /* wider content area */
   margin: 6vh auto 8vh auto;
@@ -30,7 +35,7 @@ body{
 
 .inner{ padding: clamp(18px, 2.5vw, 32px); }
 
-header{ border-bottom: 1px solid #eee; }
+header{ border-bottom: 3px solid var(--orange); }
 .site-title{
   display:block;
   text-align:center;
@@ -43,7 +48,8 @@ header{ border-bottom: 1px solid #eee; }
 }
 nav{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom: 4px; }
 nav a{ text-decoration:none; color:var(--fg); padding:8px 10px; border-radius:10px }
-nav a.active, nav a:hover{ background:#f6f6f6 }
+nav a.active, nav a:hover{ background: rgba(238, 97, 32, 0.12); color: var(--orange); }
+.nav-social:hover { color: var(--magenta); }
 
 .hero{ display:grid; gap: clamp(18px, 2vw, 28px); align-items:center; }
 @media(min-width:900px){ .hero{ grid-template-columns: 1fr 1.25fr; } }
@@ -71,16 +77,20 @@ footer .inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:
 }
 
 .eyebrow-badge {
-  background: rgba(199, 62, 43, 0.10);  // 10% of your accent #c73e2b
-  border: 1px solid rgba(199, 62, 43, 0.35);
-  color: #8c261c;
+  display:inline-block; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  background: var(--orange);
+  border: none;
+  color: #fff;
+  padding:6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
 }
 
 /* Keep CTA visually dominant: solid, bigger, pill shape */
 .buttons a.pre-order {
-  background: var(--accent);
-  color: var(--accent-ink);
-  border-color: var(--accent);
+  background: var(--orange);
+  color: #fff;
+  border-color: var(--orange);
   border-radius: 999px;               /* distinct from badge’s 6px */
   font-size: 1.1rem;
   padding: 14px 28px;
@@ -90,10 +100,37 @@ footer .inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:
 }
 .buttons a.pre-order:hover { opacity: 0.92; }
 
+.region-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.region-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.region-links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--fg);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  transition: background .15s ease, color .15s ease;
+}
+.region-links a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
 /* Bio layout */
 .bio-grid {
   display: grid;
-  gap: 20px;  /* was likely bigger — try 16–20px for tighter spacing */
+  gap: clamp(18px, 2.5vw, 28px);
   align-items: start;
 }
 
@@ -111,11 +148,11 @@ footer .inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:
 .headshot img {
   display: block;
   width: 100%;
-  max-width: 280px;      /* adjust until size feels right */
-  aspect-ratio: 3 / 4; /* slightly taller than wide */
-  border-radius: 50% / 60%; /* makes an oval: 50% horizontal, 60% vertical rounding */
-  object-fit: cover;     /* ensures it crops, not squishes */
-  margin: 0 auto;        /* centers in its column */
+  max-width: 180px; /* adjust this number until it looks right */
+  height: auto;
+  border-radius: 50%;        /* circular portrait */
+  object-fit: cover;
+  border: 4px solid var(--accent);
   box-shadow: 0 6px 24px rgba(0,0,0,.08);
 }
 .headshot figcaption {
@@ -128,20 +165,106 @@ footer .inner{ display:flex; justify-content:space-between; gap:16px; flex-wrap:
 .bio-copy h1 { margin-top: 0; }
 .bio-copy p { margin: 0 0 14px; }
 
-.cat-grid {
+/* Nav social icon */
+.nav-social {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 8px !important;
+}
+.nav-social svg { display: block; }
+
+/* Hero author blurb */
+.author-blurb {
+  font-style: italic;
+  color: var(--magenta);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-top: 14px;
+}
+.author-blurb em { font-style: italic; }
+
+/* As Seen In */
+.as-seen-in {
+  margin-top: clamp(28px, 4vw, 44px);
+  text-align: center;
+}
+.as-seen-label {
+  font-size: 0.75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+.press-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(16px, 3vw, 36px);
+}
+.press-row span {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  color: var(--fg);
+  opacity: .7;
+  white-space: nowrap;
+}
+
+/* Praise section */
+.praise {
+  margin-top: clamp(32px, 5vw, 56px);
+  padding-top: clamp(24px, 4vw, 40px);
+  border-top: 1px solid #eee;
+}
+.praise h2 {
+  text-align: center;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  margin-bottom: clamp(18px, 3vw, 28px);
+}
+.praise-grid {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .praise-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.praise blockquote {
+  margin: 0;
+  padding: 20px 22px;
+  background: #fafafa;
+  border-radius: var(--radius);
+  border-left: 3px solid var(--accent);
+}
+.praise-grid blockquote:nth-child(2) { border-left-color: var(--magenta); }
+.praise-grid blockquote:nth-child(3) { border-left-color: var(--orange); }
+.praise blockquote p {
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0 0 10px;
+  color: var(--fg);
+}
+.praise blockquote cite {
+  display: block;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--muted);
+}
+
+/* Author endorsement quotes */
+.author-grid {
   margin-top: 20px;
 }
-.cat-grid img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
+@media (min-width: 900px) {
+  .author-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.cat-grid img:hover { transform: scale(1.03); }
-
+.author-quote {
+  background: rgba(205, 38, 126, 0.06);
+  border-left: 3px solid var(--magenta);
+}
+.author-quote p {
+  font-size: 1.05rem;
+}
 
